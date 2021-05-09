@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export basepath=$(cd `dirname $0`; pwd)
+java -jar ${basepath}/../lib/java-capture-collect.jar $@
