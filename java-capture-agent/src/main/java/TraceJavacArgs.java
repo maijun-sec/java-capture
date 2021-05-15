@@ -1,4 +1,3 @@
-import com.sun.tools.javac.api.JavacTool;
 import org.openjdk.btrace.core.BTraceUtils;
 import org.openjdk.btrace.core.annotations.BTrace;
 import org.openjdk.btrace.core.annotations.Kind;
@@ -101,7 +100,6 @@ public class TraceJavacArgs {
                                       AnyType diagnosticListener,
                                       Iterable<String> options,
                                       AnyType classes) {
-        JavacTool tool = JavacTool.create();
         // Writer var1, JavaFileManager var2,  var3, Iterable<String> var4,  var5,  var6
         BTraceUtils.println("=====> trace JavacTool getTask...");
         handleJavaTool(options);
@@ -118,7 +116,6 @@ public class TraceJavacArgs {
                                       AnyType options,
                                       AnyType classes,
                                       AnyType compilationUnits) {
-        JavacTool tool = JavacTool.create();
         // Writer var1, JavaFileManager var2,  var3, Iterable<String> var4,  var5,  var6
         BTraceUtils.println("=====> trace JavacTool getTask...");
         List<String> arguments = new ArrayList<>();
