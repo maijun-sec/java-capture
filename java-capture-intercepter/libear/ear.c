@@ -134,6 +134,7 @@ int execve(const char *path, char *const argv[], char *const envp[]) {
         char *argx[len + 2];
         argx[0] = argv[0];
 
+        // TODO need to configure javaagent message to configuration file.
         char *str = "-javaagent:%s/btrace-2.0.1-bin/libs/btrace-agent.jar=noServer=true,trusted=true,script=%s/script/TraceJavacArgs.class,systemClassPath=%s/lib/com.sun.tools-1.8.0_jdk8u275-b01_linux_x64.jar:%s/lib/hamcrest-core-1.3.jar:%s/lib/java-capture-agent.jar:%s/lib/slf4j-api-1.7.30.jar";
         int java_agent_max_length = strlen(str) + strlen(java_capture_tool_path) * 6 + 1;
         char java_agent[java_agent_max_length];

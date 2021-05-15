@@ -12,4 +12,36 @@
     <artifactId>java-capture-intercepter</artifactId>
 
     <name>java-capture-intercepter</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>generate-so</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- gcc -shared -fPIC -pthread ear.c -o libear.so -ldl -->
+                    <executable>gcc</executable>
+                    <arguments>
+                        <argument>-shared</argument>
+                        <argument>-fPIC</argument>
+                        <argument>-pthread</argument>
+                        <argument>${project.basedir}/libear/ear.c</argument>
+                        <argument>-o</argument>
+                        <argument>${project.basedir}/target/libear.so</argument>
+                        <argument>-ldl</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
